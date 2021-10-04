@@ -1,6 +1,12 @@
 #include <iostream>
 using namespace std;
 
+// Init function. Sets up SDL and all subsystems.
+void Init()
+{
+	cout << "Initializing game..." << endl;
+}
+
 // HandleEvents function. Handles events.
 void HandleEvents()
 {
@@ -19,11 +25,19 @@ void Render()
 	cout << "Rendering..." << endl;
 }
 
+// Clean function. De-initializes SDL.
+void Clean()
+{
+	cout << "Cleaning game..." << endl;
+}
+
 // Run function. Contains main game loop.
 int Run()
 {
 	bool isRunning = true;
 	char input;
+
+	Init();
 	while (isRunning)
 	{
 		HandleEvents(); // Input.
@@ -34,6 +48,7 @@ int Run()
 		if (input == 'y')
 			isRunning = false;
 	}
+	Clean();
 	return 0;
 }
 
